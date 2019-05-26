@@ -1,0 +1,3 @@
+Appointment(id=2, clientId=1, typeId=2, dateString=2019-05-06 12:08, held=false)
+Appointment(id=3, clientId=2, typeId=2, dateString=2019-05-06 12:08, held=false)
+Appointment(id=1, clientId=1, typeId=2, dateString=2019-05-06 12:08, held=true)
