@@ -3,6 +3,7 @@ import model from "../model/model";
 class CreateUserPresenter {
 
     onCreate() {
+        debugger;
         model.addUser(model.state.newUser.email, model.state.newUser.firstName, model.state.newUser.lastName, model.state.newUser.password);
         model.changeNewUserProperty("email", "");
         model.changeNewUserProperty("firstName", "");

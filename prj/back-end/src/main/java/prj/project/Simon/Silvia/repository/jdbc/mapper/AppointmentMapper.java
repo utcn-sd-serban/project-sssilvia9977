@@ -16,7 +16,9 @@ public class AppointmentMapper  implements RowMapper<Appointment> {
                     rs.getInt("client_user_id"),
                     rs.getInt("type_id"),
                     rs.getString("app_date"),
-                    rs.getBoolean("held")
+                    rs.getBoolean("held"),
+                    rs.getInt("discount"),
+                    rs.getBoolean("addedDiscount")
             );
 
     }

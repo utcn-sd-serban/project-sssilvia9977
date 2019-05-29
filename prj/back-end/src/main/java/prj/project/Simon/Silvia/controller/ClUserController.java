@@ -1,10 +1,12 @@
-/*package prj.project.Simon.Silvia.controller;
+package prj.project.Simon.Silvia.controller;
 
 
         import lombok.RequiredArgsConstructor;
+        import org.springframework.security.core.userdetails.UsernameNotFoundException;
         import org.springframework.security.crypto.password.PasswordEncoder;
         import org.springframework.web.bind.annotation.*;
         import prj.project.Simon.Silvia.entity.AllUsers;
+        import prj.project.Simon.Silvia.entity.ClientUser;
         import prj.project.Simon.Silvia.service.ClientUserService;
 
         import java.util.List;
@@ -13,26 +15,28 @@
 @RequiredArgsConstructor
 public class ClUserController {
     private final ClientUserService clientUserService;
-    private final CommandFactory commandFactory;
+    private final PasswordEncoder passwordEncoder;
 
-    @GetMapping("/users")
-    public List<StackUser> readAll(){
-        return stackUserManagementService.listStackUser();
-    }
 
-    @PostMapping("/login")
-    public void login(@RequestBody AllUsers user)
+    @PostMapping("/login-client")
+    public void login(@RequestBody ClientUser user) throws Exception
     {
-        AllUsers currentUser = userManagementService.findUserByEmail(user.getEmailAddress()).get();
+        ClientUser currentUser = clientUserService.findClientByEmail(user.getEmailAddress()).orElseThrow(() -> new Exception("No client found"));
 
         if(!passwordEncoder.matches(user.getPassword(), currentUser.getPassword()))
         {
-            throw new StackUserNotFoundException();
+            throw new UsernameNotFoundException("Incorrect password");
         }
-
     }
 
- appointments  !!!!!!!!!!!!!!!!!!!!!!!!!!!
+    @PostMapping("/create-client")
+    public ClientUser createClient(@RequestBody ClientUser clientUser)
+    {
+        clientUser.setPassword(passwordEncoder.encode(clientUser.getPassword()));
+        return clientUserService.addClientUser(clientUser);
+    }
+
+
+ //appointments  !!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 }
-*/

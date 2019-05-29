@@ -27,6 +27,8 @@ public class Appointment {
     private Integer typeId;
     private String dateString;
     private boolean held;
+    private int discount;
+    private boolean addedDiscount;  //if the person used or not this appointent to calculate the dicount
 
     //yyy-dd-mm HH:mm asa e in baza de date   2019-05-06 12:08
 
@@ -35,6 +37,8 @@ public class Appointment {
         this.typeId = typeId;
         this.dateString = appDate;
         this.held = false;
+        this.discount = 0;
+        this.addedDiscount = false;
     }
 
     public Appointment(Integer id, Integer clientId, Integer typeId, String appDate) {
@@ -47,6 +51,9 @@ public class Appointment {
 
     public boolean getHeld() {
         return held;
+    }
+    public boolean getAddedDiscout() {
+        return addedDiscount;
     }
 
 }
