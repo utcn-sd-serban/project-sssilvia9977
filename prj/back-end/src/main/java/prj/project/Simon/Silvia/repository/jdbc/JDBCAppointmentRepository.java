@@ -78,14 +78,18 @@ public class JDBCAppointmentRepository implements AppointmetRepository {
         map.put("client_user_id", appointment.getClientId());
         map.put("type_id", appointment.getTypeId());
         map.put("app_date", appointment.getDateString());
+        map.put("held", appointment.getHeld());
+        map.put("discount", appointment.getDiscount());
+        map.put("addedDiscount", appointment.getAddedDiscout());
+
         return insert.executeAndReturnKey(map).intValue();
 
     }
 
 
     private void update(Appointment appointment) {
-        template.update("UPDATE appointment SET client_user_id = ?, type_id = ?, app_date = ? , held = ? WHERE id = ?",
-                appointment.getClientId(), appointment.getTypeId(), appointment.getDateString(), appointment.getHeld(), appointment.getId());
+        template.update("UPDATE appointment SET client_user_id = ?, type_id = ?, app_date = ? , held = ?, discount =?, addedDiscount = ? WHERE id = ?",
+                appointment.getClientId(), appointment.getTypeId(), appointment.getDateString(), appointment.getHeld(),appointment.getDiscount(), appointment.getAddedDiscout(),  appointment.getId());
     }
 
 }

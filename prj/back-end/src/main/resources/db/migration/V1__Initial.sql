@@ -40,7 +40,9 @@ CREATE TABLE IF NOT EXISTS appointment (
                                          client_user_id INT NOT NULL REFERENCES  client_user (id),
                                          type_id INT NOT NULL REFERENCES  appointment_type  (id),
                                          app_date VARCHAR(64),
-                                         held BOOLEAN
+                                         held BOOLEAN,
+                                         discount INT,
+                                         addedDiscount BOOLEAN
 
 );
 

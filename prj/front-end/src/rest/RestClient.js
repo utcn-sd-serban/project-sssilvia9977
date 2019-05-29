@@ -6,13 +6,10 @@ const BASE_URL = "http://localhost:8080";
 export default class RestClient {
 
 
-    auth(username, password)
-    {
+    setAuthorization(username, password) {
+        debugger;
         this.username = username;
         this.password = password;
-    }
-
-    setAuthorization() {
         this.authorization = "Basic " + btoa(this.username + ":" + this.password);
     }
 
@@ -38,17 +35,13 @@ export default class RestClient {
         }).then(response => response.json());
     }
 
-    login(id, email, password)
+    login(email, password)
     {
-        const names = email.split('@')[0].split('.');
-
-        return fetch(BASE_URL + "/login", {
+        debugger;
+        return fetch(BASE_URL + "/login-client", {
 
             method: "POST",
             body: JSON.stringify({
-                id: id,
-                firstName: names[0],
-                lastName: names[1],
                 emailAddress: email,
                 password: password
             }),
@@ -69,6 +62,24 @@ export default class RestClient {
                 id: id,
                 user: username,
                 idType: idType
+            }),
+            headers: {
+                "Authorization": this.authorization,
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json());
+    }
+
+    createUser(email, firstName, lastName, password)
+    {
+        debugger;
+        return fetch(BASE_URL + "/create-client", {
+            method: "POST",
+            body: JSON.stringify({
+                emailAddress: email,
+                firstName: firstName,
+                lastName: lastName,
+                password: password
             }),
             headers: {
                 "Authorization": this.authorization,

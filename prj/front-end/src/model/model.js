@@ -3,12 +3,12 @@ import { EventEmitter } from "events";
 //type of user: empl or cl
 import RestClient from "../rest/RestClient";
 
-const client = new RestClient("A.B@example.com", "AB");
 
 
 class Model extends EventEmitter{
     constructor() {
         super();
+        this.restClient = new RestClient();
         this.state = {
             appoint: [{
                 idAppoint: 1,
@@ -19,7 +19,9 @@ class Model extends EventEmitter{
                 duration: 120,
                 price: 19,
                 dueDate: "2019-05-06 12:22",
-                held: true
+                held: true,
+                discount: 0,
+                addedDiscount: false
 
             }, {
                 idAppoint: 2,
@@ -30,7 +32,9 @@ class Model extends EventEmitter{
                 duration: 190,
                 price: 22,
                 dueDate: "2019-09-06 12:22",
-                held: false
+                held: false,
+                discount: 0,
+                addedDiscount: false
             }],
 
 
@@ -39,13 +43,13 @@ class Model extends EventEmitter{
                 idAppType: 1,
                 typeName: "Trim",
                 duration: 120,
-                price: 19
+                price: 190
 
             }, {
                 idAppType: 2,
                 typeName: "Wash",
                 duration: 190,
-                price: 22
+                price: 220
             }],
 
 
@@ -56,7 +60,10 @@ class Model extends EventEmitter{
                 duration: "",
                 price: "",
                 dueDate: "",
-                held: false
+                held: false,
+                discount: 0,
+                addedDiscount: false
+
             },
 
             appointByDate: [],
@@ -183,16 +190,12 @@ class Model extends EventEmitter{
 
 
     addUser(email, firstName, lastName, password){
-        this.state = {
-            ...this.state,
-            appUsers: this.state.appUsers.concat([{
-                idUser: ++this.state.idUserRemember,
-                email: email,
-                firstName: firstName,
-                lastName: lastName,
-                password: password
-            }])
-        };
+        this.restClient.createUser(email, firstName, lastName, password).then(user => {
+            this.state = {
+                ...this.state,
+                appUsers: this.state.appUsers.concat([user])
+            };
+        });
         this.emit("change", this.state);
     }
 
@@ -283,7 +286,22 @@ class Model extends EventEmitter{
     }
 
 
+    login()
+    {
+        this.restClient.setAuthorization(this.state.currentUser.email, this.state.currentUser.password);
+        this.restClient.login(this.state.currentUser.email, this.state.currentUser.password).then(response =>{
+            if (response.status === 200)
+            {
+                window.location.assign("#/cl-start");
+            }
+            else
+            {
+                window.location.assign("#/");
+            }
+        })
+    }
 
+/*
     login(){
 
         this.setAuthorization();
@@ -343,10 +361,8 @@ class Model extends EventEmitter{
         else {
             this.state.userFound= "no";
         }
-
-
-
     }
+*/
 
     changeCurrentUserProperty(property, value) {
         this.state = {
@@ -358,6 +374,8 @@ class Model extends EventEmitter{
         };
         this.emit("change", this.state);
     }
+
+
 
 
     changeNewUserProperty(property, value) {

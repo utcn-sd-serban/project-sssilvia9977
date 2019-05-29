@@ -19,6 +19,10 @@ import java.util.Scanner;
 @Component
 @RequiredArgsConstructor
 public class ConsoleController implements CommandLineRunner {
+    @Override
+    public void run(String... args) throws Exception {
+
+    }/*
 
     private final Scanner scanner = new Scanner(System.in);
     private ClientUser clientUser;
@@ -273,19 +277,38 @@ public class ConsoleController implements CommandLineRunner {
         writer.close();
     }
 
+
+
     public void handleAppointmentAdd() {
-        System.out.println("Choose type of appointment:");
+        System.out.println("You have " + appointmentService.calculatePoints(clientUser.getId()) + " points. Do you want to use them? [y/n]");
+        String usePointClientDecide = scanner.next();
+        if(usePointClientDecide.equals("y")){
+            System.out.println("Choose type of appointment:");
+            appointmentTypeService.listAllAppointmentsTypes().forEach(s-> System.out.println(s.toString()));
 
-        appointmentTypeService.listAllAppointmentsTypes().forEach(s-> System.out.println(s.toString()));
+            int typeId = scanner.nextInt();
+            System.out.println("Enter date in format like yyy-mm-dd hh:mm :");
+            String newDateDay = scanner.next().trim();
+            String newDateHour = scanner.nextLine().trim();
 
-        int typeId = scanner.nextInt();
-        System.out.println("Enter date in format like yyy-mm-dd hh:mm :");
-        String newDateDay = scanner.next().trim();
-        String newDateHour = scanner.nextLine().trim();
+            Appointment newApp = new Appointment(clientUser.getId(), typeId, newDateDay+" "+newDateHour);
+            Appointment appointment = appointmentService.addAppointment(newApp, true);
+            System.out.println("Created Appointment: " + appointment + ".");
+        }
+        else{
+            System.out.println("Choose type of appointment:");
+            appointmentTypeService.listAllAppointmentsTypes().forEach(s-> System.out.println(s.toString()));
 
-        Appointment newApp = new Appointment(clientUser.getId(), typeId, newDateDay+" "+newDateHour);
-        Appointment appointment = appointmentService.addAppointment(newApp);
-        System.out.println("Created Appointment: " + appointment + ".");
+            int typeId = scanner.nextInt();
+            System.out.println("Enter date in format like yyy-mm-dd hh:mm :");
+            String newDateDay = scanner.next().trim();
+            String newDateHour = scanner.nextLine().trim();
+
+            Appointment newApp = new Appointment(clientUser.getId(), typeId, newDateDay+" "+newDateHour);
+            Appointment appointment = appointmentService.addAppointment(newApp, false);
+            System.out.println("Created Appointment: " + appointment + ".");
+        }
+
     }
 
     private void handleEmployeeUserList() {

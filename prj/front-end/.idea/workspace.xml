@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7577e87-24c2-4d23-95dd-db9282d11a52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/controller/ConsoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/controller/ConsoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/entity/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/entity/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/repository/jdbc/JDBCAppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/repository/jdbc/JDBCAppointmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/repository/jdbc/JDBCClientUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/repository/jdbc/JDBCClientUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/repository/jdbc/mapper/AppointmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/repository/jdbc/mapper/AppointmentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/service/AppointmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/service/ClientUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back-end/src/main/java/prj/project/Simon/Silvia/service/ClientUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back-end/src/main/resources/db/migration/V1__Initial.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../back-end/src/main/resources/db/migration/V1__Initial.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,29 +24,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="288" column="32" selection-start-line="288" selection-start-column="32" selection-end-line="288" selection-end-column="32" />
+            <state relative-caret-position="170">
+              <caret line="184" column="19" selection-start-line="184" selection-start-column="19" selection-end-line="184" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/Login.js">
+        <entry file="file://$PROJECT_DIR$/src/presenter/createUserPresenter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2295">
-              <caret line="135" column="46" selection-start-line="135" selection-start-column="46" selection-end-line="135" selection-end-column="46" />
+            <state relative-caret-position="68">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/SmartCreateUser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/rest/RestClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
+            <state relative-caret-position="272">
+              <caret line="46" column="15" lean-forward="true" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/presenter/loginPresenter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="15" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -51,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="27" column="80" lean-forward="true" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="80" />
+            <state relative-caret-position="170">
+              <caret line="26" column="77" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="77" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -63,20 +87,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/SmartLogin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+            <state relative-caret-position="387">
+              <caret line="31" column="47" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="47" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/presenter/loginPresenter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -99,20 +114,20 @@
       <find>inde</find>
       <find>searchedText</find>
       <find>appType</find>
+      <find>addU</find>
     </findStrings>
     <replaceStrings>
       <replace />
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/view/SmartClientDetailsPresenter.js" />
         <option value="$PROJECT_DIR$/src/view/SmartClientDetails.js" />
-        <option value="$PROJECT_DIR$/src/presenter/createUserPresenter.js" />
         <option value="$PROJECT_DIR$/src/view/SmartCreateUser.js" />
         <option value="$PROJECT_DIR$/src/presenter/employeeManageClientPresenter.js" />
         <option value="$PROJECT_DIR$/src/view/SmartEmployeeManageClient.js" />
@@ -156,19 +171,19 @@
         <option value="$PROJECT_DIR$/src/presenter/clReviewPresenter.js" />
         <option value="$PROJECT_DIR$/src/view/ClReview.js" />
         <option value="$PROJECT_DIR$/src/view/ClAddAppoint.js" />
-        <option value="$PROJECT_DIR$/src/presenter/loginPresenter.js" />
         <option value="$PROJECT_DIR$/src/view/SmartLogin.js" />
         <option value="$PROJECT_DIR$/src/view/Login.js" />
-        <option value="$PROJECT_DIR$/src/rest/RestClient.js" />
+        <option value="$PROJECT_DIR$/src/presenter/loginPresenter.js" />
         <option value="$PROJECT_DIR$/src/model/model.js" />
+        <option value="$PROJECT_DIR$/src/presenter/createUserPresenter.js" />
+        <option value="$PROJECT_DIR$/src/rest/RestClient.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -178,40 +193,44 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="parteadoua" type="b2602c69:ProjectViewProjectNode" />
-              <item name="parteadoua" type="462c0819:PsiDirectoryNode" />
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="parteadoua" type="b2602c69:ProjectViewProjectNode" />
-              <item name="parteadoua" type="462c0819:PsiDirectoryNode" />
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="parteadoua" type="b2602c69:ProjectViewProjectNode" />
-              <item name="parteadoua" type="462c0819:PsiDirectoryNode" />
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="parteadoua" type="b2602c69:ProjectViewProjectNode" />
-              <item name="parteadoua" type="462c0819:PsiDirectoryNode" />
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="presenter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="parteadoua" type="b2602c69:ProjectViewProjectNode" />
-              <item name="parteadoua" type="462c0819:PsiDirectoryNode" />
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="rest" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="parteadoua" type="b2602c69:ProjectViewProjectNode" />
-              <item name="parteadoua" type="462c0819:PsiDirectoryNode" />
+              <item name="front-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -219,6 +238,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -281,22 +301,26 @@
       <workItem from="1558530481422" duration="2831000" />
       <workItem from="1558782109568" duration="17118000" />
       <workItem from="1558871234316" duration="3159000" />
+      <workItem from="1559120225630" duration="126000" />
+      <workItem from="1559137468353" duration="478000" />
+      <workItem from="1559144332408" duration="4722000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77773000" />
+    <option name="totallyTimeSpent" value="83099000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17490953" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1731659" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2206047" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21954674" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -321,13 +345,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presenter/createUserPresenter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -438,16 +455,6 @@
           <caret line="65" column="23" lean-forward="true" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/SmartCreateUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -689,51 +696,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presenter/loginPresenter.js">
+    <entry file="file://$PROJECT_DIR$/src/view/Login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        <state relative-caret-position="621">
+          <caret line="135" column="46" selection-start-line="135" selection-start-column="46" selection-end-line="135" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="27" column="80" lean-forward="true" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="80" />
+        <state relative-caret-position="170">
+          <caret line="26" column="77" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="77" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Login.js">
+    <entry file="file://$PROJECT_DIR$/src/presenter/loginPresenter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="135" column="46" selection-start-line="135" selection-start-column="46" selection-end-line="135" selection-end-column="46" />
+        <state relative-caret-position="136">
+          <caret line="8" column="15" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/SmartLogin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        <state relative-caret-position="387">
+          <caret line="31" column="47" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="47" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rest/RestClient.js">
+    <entry file="file://$PROJECT_DIR$/src/model/model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
+        <state relative-caret-position="170">
+          <caret line="184" column="19" selection-start-line="184" selection-start-column="19" selection-end-line="184" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/model.js">
+    <entry file="file://$PROJECT_DIR$/src/view/SmartCreateUser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="288" column="32" selection-start-line="288" selection-start-column="32" selection-end-line="288" selection-end-column="32" />
+        <state relative-caret-position="302">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presenter/createUserPresenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rest/RestClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="46" column="15" lean-forward="true" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="15" />
         </state>
       </provider>
     </entry>

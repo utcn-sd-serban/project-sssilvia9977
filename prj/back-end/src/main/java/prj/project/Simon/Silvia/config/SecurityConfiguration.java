@@ -22,9 +22,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/users").permitAll()
+        http.authorizeRequests().antMatchers("/create-client").permitAll()
                 .anyRequest().authenticated().and()
                 .httpBasic().and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 // next line disables session creation (forces true HTTP Basic behavior)
                 .cors().and()
                 .csrf().disable();

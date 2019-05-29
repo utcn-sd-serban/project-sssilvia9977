@@ -4,6 +4,7 @@ package prj.project.Simon.Silvia.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import prj.project.Simon.Silvia.entity.Appointment;
 import prj.project.Simon.Silvia.entity.ClientUser;
 import prj.project.Simon.Silvia.exceptions.ClientUserNotFoundException;
 import prj.project.Simon.Silvia.repository.ClientUserRepository;
@@ -20,6 +21,12 @@ public class ClientUserService {
     @Transactional
     public List<ClientUser> listAllClientUser(){
         return repositoryFactory.createClientUserRepository().findAll();
+    }
+
+
+    public Optional<ClientUser> findClientByEmail(String email)
+    {
+        return repositoryFactory.createClientUserRepository().finddByEmail(email);
     }
 
     public Optional<ClientUser> findClientUserbyNameEmail(String fname, String lname, String email){
@@ -49,6 +56,12 @@ public class ClientUserService {
         clientUser.setEmailAddress(newEmail);
         repository.save(clientUser);
     }
+
+
+
+
+
+
 
     @Transactional
     public void removeClientUser(Integer id){

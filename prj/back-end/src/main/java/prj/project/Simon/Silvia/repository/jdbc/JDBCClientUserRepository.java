@@ -3,6 +3,7 @@ package prj.project.Simon.Silvia.repository.jdbc;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import prj.project.Simon.Silvia.entity.Appointment;
 import prj.project.Simon.Silvia.entity.ClientUser;
 import prj.project.Simon.Silvia.repository.ClientUserRepository;
 import prj.project.Simon.Silvia.repository.jdbc.mapper.ClientUserMapper;
@@ -52,8 +53,9 @@ public class JDBCClientUserRepository implements ClientUserRepository {
                                 clientUser.getPassword().equals(password)
         ).findFirst();
 
-
     }
+
+
 
     @Override
     public void removeClient(ClientUser clientUser) {
