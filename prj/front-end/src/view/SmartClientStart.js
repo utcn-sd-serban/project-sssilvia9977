@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import model from "../model/model"
-import employeeStartPresenter from "../presenter/employeeStartPresenter";
 import ClientStart from "./ClientStart";
 import clientStartPresenter from "../presenter/clientStartPresenter";
 

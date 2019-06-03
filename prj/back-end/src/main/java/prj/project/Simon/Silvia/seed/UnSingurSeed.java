@@ -74,6 +74,16 @@ public class UnSingurSeed implements CommandLineRunner {
         }
 
 
+
+        ReviewRepository reviewRepository = factory.createReviewRepository();
+        if (reviewRepository.findAll().isEmpty()) {
+            reviewRepository.save(new Review(1, "bla bla"));
+            reviewRepository.save(new Review(2, "This was awesome!" , "approved"));
+            reviewRepository.save(new Review(1, "Very very nice haha no"));
+
+        }
+
+
     }
 }
 

@@ -1,9 +1,8 @@
 import model from "../model/model";
-import findByEmailPresenter from "./findByEmailPresenter";
 
 
 
-class ManageAppPresenter {
+class EmplManageAppPresenter {
 
 
     onBack(){
@@ -24,6 +23,6 @@ class ManageAppPresenter {
 
 }
 
-const manageAppPresenter = new ManageAppPresenter();
+const manageAppPresenter = new EmplManageAppPresenter();
 
 export default manageAppPresenter;

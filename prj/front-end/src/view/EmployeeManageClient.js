@@ -92,9 +92,11 @@ const EmployeeManageClient = ({ onChange: onChangeSearchedText, appUsers ,onView
                                 <table className="table  is-striped " >
                                     <thead>
                                     <tr>
-                                        <th>Email</th>
+                                        <th>idUser</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Pass</th>
                                         <th>View Details</th>
                                     </tr>
                                     </thead>
@@ -103,9 +105,11 @@ const EmployeeManageClient = ({ onChange: onChangeSearchedText, appUsers ,onView
                                     {
                                         appUsers.map((user, index) => (
                                             <tr key={index}>
-                                                <td>{user.email}</td>
+                                                <td>{user.idUser}</td>
                                                 <td>{user.firstName}</td>
                                                 <td>{user.lastName}</td>
+                                                <td>{user.email}</td>
+                                                <td>{user.password}</td>
                                                 <td>
 
                                                     <a className="button is-rounded is-focused"

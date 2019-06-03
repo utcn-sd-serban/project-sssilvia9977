@@ -7,7 +7,6 @@ export default class RestClient {
 
 
     setAuthorization(username, password) {
-        debugger;
         this.username = username;
         this.password = password;
         this.authorization = "Basic " + btoa(this.username + ":" + this.password);
@@ -15,9 +14,9 @@ export default class RestClient {
 
 
 
-    loadAllAppoint(username, password) {
+    loadAllAppointEmpl(username, password) {     //dece pnm nu merge, nu stiu
         this.authorization = "Basic " + btoa(username + ":" + password);
-        return fetch(BASE_URL + "/appointments", {
+        return fetch(BASE_URL + "/appointments-empl", {
             method: "GET",
             headers: {
                 "Authorization": this.authorization
@@ -25,9 +24,26 @@ export default class RestClient {
         }).then(response => response.json());
     }
 
-    loadAllUsers()
+
+
+    loadAllReviews(username, password) { //merge
+        debugger
+        this.authorization = "Basic " + btoa(username + ":" + password);
+        return fetch(BASE_URL + "/reviews-empl", {
+            method: "GET",
+            headers: {
+                "Authorization": this.authorization
+            }
+        }).then(response => response.json());
+        debugger
+    }
+
+
+
+
+    loadAllUsers()    //nu merge
     {
-        return fetch(BASE_URL + "/users", {
+        return fetch(BASE_URL + "/clients-empls", {
             method: "GET",
             headers: {
                 "Authorization": this.authorization
@@ -35,9 +51,8 @@ export default class RestClient {
         }).then(response => response.json());
     }
 
-    login(email, password)
+    login(email, password)    //merge
     {
-        debugger;
         return fetch(BASE_URL + "/login-client", {
 
             method: "POST",
@@ -55,7 +70,7 @@ export default class RestClient {
         });
     }
 
-    createAppoint(idType, date, username, id) {
+    createAppoint(idType, date, username, id) {   //n am incercat
         return fetch(BASE_URL + "/create-question", {
             method: "POST",
             body: JSON.stringify({
@@ -70,9 +85,8 @@ export default class RestClient {
         }).then(response => response.json());
     }
 
-    createUser(email, firstName, lastName, password)
+    createUser(email, firstName, lastName, password)   //merge
     {
-        debugger;
         return fetch(BASE_URL + "/create-client", {
             method: "POST",
             body: JSON.stringify({
@@ -87,4 +101,42 @@ export default class RestClient {
             }
         }).then(response => response.json());
     }
+
+
+    createEmployee(firstName, lastName, password)  //merge
+    {
+        return fetch(BASE_URL + "/create-empl", {
+            method: "POST",
+            body: JSON.stringify({
+                emailAddress: firstName + "."+lastName + "@pets.com",
+                firstName: firstName,
+                lastName: lastName,
+                password: password
+            }),
+            headers: {
+                "Authorization": this.authorization,
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json());
+    }
+
+
+   changeState() //cum fac chestia asta
+    {
+        return fetch(BASE_URL + "/update-review-state/{id}", {
+            method: "POST",
+            body: JSON.stringify(),
+            headers: {
+                "Authorization": this.authorization,
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json());
+    }
+
+
+
+
+
+
+
 }

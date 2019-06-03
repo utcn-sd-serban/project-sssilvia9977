@@ -69,12 +69,13 @@ const ManageApp = ({  appoint, idAppoint,onMarkHeld, onLogOut, onBack}) => (
                                 <table className="table  is-striped " >
                                     <thead>
                                     <tr>
-                                        <th>User</th>
-                                        <th>Type Name</th>
-                                        <th>Duration</th>
-                                        <th>Price</th>
+                                        <th>IdAppoint</th>
+                                        <th>UserId</th>
+                                        <th>TypeId</th>
                                         <th>Due Date</th>
                                         <th>Held</th>
+                                        <th>Discount</th>
+                                        <th>Used Discount</th>
                                         <th>Mark it</th>
                                     </tr>
                                     </thead>
@@ -83,12 +84,13 @@ const ManageApp = ({  appoint, idAppoint,onMarkHeld, onLogOut, onBack}) => (
                                     {
                                         appoint.map((app, index) => (
                                             <tr key={index}>
-                                                <td>{app.user}</td>
-                                                <td>{app.typeName}</td>
-                                                <td>{app.duration}</td>
-                                                <td>{app.price}</td>
+                                                <td>{app.idAppoint}</td>
+                                                <td>{app.idUser}</td>
+                                                <td>{app.idType}</td>
                                                 <td>{app.dueDate}</td>
                                                 <td>{app.held.toString()}</td>
+                                                <td>{app.discount}</td>
+                                                <td>{app.addedDiscount.toString()}</td>
                                                 <td>
 
                                                     <a className="button is-rounded is-focused"

@@ -69,6 +69,7 @@ const EmplManageReviews = ({  reviews, onLogOut, onBack, onViewDetails}) => (
                                 <table className="table  is-striped " >
                                     <thead>
                                     <tr>
+                                        <th>ReviewID</th>
                                         <th>User</th>
                                         <th>Text</th>
                                         <th>Status</th>
@@ -80,6 +81,7 @@ const EmplManageReviews = ({  reviews, onLogOut, onBack, onViewDetails}) => (
                                     {
                                         reviews.map((re, index) => (
                                             <tr key={index}>
+                                                <td>{re.idReview}</td>
                                                 <td>{re.idUser}</td>
                                                 <td>{re.text}</td>
                                                 <td>{re.state}</td>

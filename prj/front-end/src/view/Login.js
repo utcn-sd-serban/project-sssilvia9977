@@ -80,8 +80,8 @@ const Login = ({ onCreateUser, onLogin, onChange, approvedReviews }) => (
                             <div className="tile is-ancestor">
                                 <div className="tile is-4 is-vertical is-parent">
                                     <div className="tile is-child ">
-                                        <p className="title has-text-black-ter is-family-primary">Welcome To UnderDog </p>
-                                        <p className="subtitle">Here you can see all our reviews</p>
+                                        <p className="title has-text-black-ter is-family-primary"> </p>
+                                        <p className="subtitle"></p>
 
                                     </div>
 

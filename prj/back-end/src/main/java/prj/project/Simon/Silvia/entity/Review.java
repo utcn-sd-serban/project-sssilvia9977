@@ -20,11 +20,18 @@ public class Review {
     private Integer id;
     private Integer clientId;
     private String text;
+    private String state;  //approved or decline
 
     public Review(Integer clientId, String text){
         this.clientId = clientId;
         this.text = text;
+        this.state = "decline" ;
     }
 
+    public Review(Integer clientId, String text, String state){
+        this.clientId = clientId;
+        this.text = text;
+        this.state = state ;
+    }
 
 }

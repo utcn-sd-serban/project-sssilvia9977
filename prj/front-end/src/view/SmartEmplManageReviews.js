@@ -14,6 +14,7 @@ export default class SmartEmplManageReviews extends Component {
         this.state = mapModelStateToComponentState(model.state);
         this.listener = modelState => this.setState(mapModelStateToComponentState(modelState));
         model.addListener("change", this.listener);
+        model.loadAllReviews();
     }
 
     componentWillUnmount() {

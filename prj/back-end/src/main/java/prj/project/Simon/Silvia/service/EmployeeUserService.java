@@ -30,6 +30,7 @@ public class EmployeeUserService  {
         ).findFirst();
     }
 
+    @Transactional
     public Optional<EmployeeUser> findEmployeeUserLogIn(String email, String password){
         return repositoryFactory.createEmployeeRepository().findAuthentication(email, password);
 
@@ -38,7 +39,7 @@ public class EmployeeUserService  {
     //To add a client user i insert the data from keyboard and i create a new client that i pass as arg
     @Transactional
     public EmployeeUser addEmployee(EmployeeUser employeeUser){
-        repositoryFactory.createAllUSersRepository().save(employeeUser.toAllUser());
+      //  repositoryFactory.createAllUSersRepository().save(employeeUser.toAllUser());
         return repositoryFactory.createEmployeeRepository().save(employeeUser);
     }
 

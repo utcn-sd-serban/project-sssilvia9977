@@ -66,14 +66,15 @@ public class JDBCReviewRepository implements ReviewRepository {
         Map<String, Object> map = new HashMap<>();
         map.put("client_user_id", review.getClientId());
         map.put("text", review.getText());
+        map.put("state", review.getState());
         return insert.executeAndReturnKey(map).intValue();
 
     }
 
 
     private void update(Review review) {
-        template.update("UPDATE review SET client_user_id = ?, text = ? WHERE id = ?",
-                review.getClientId(), review.getText(), review.getId());
+        template.update("UPDATE review SET client_user_id = ?, text = ?, state = ? WHERE id = ?",
+                review.getClientId(), review.getText(), review.getState(), review.getId());
     }
 
 

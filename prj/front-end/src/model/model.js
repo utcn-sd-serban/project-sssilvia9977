@@ -103,27 +103,27 @@ class Model extends EventEmitter{
 
             appUsers: [{
                 idUser:1,
-                email: "A.B@example.com",
                 firstName:"A",
                 lastName: "B",
+                email: "A.B@example.com",
                 password: "AB"
             },{
                 idUser:2,
-                email: "a",
                 firstName:"a",
                 lastName: "a",
+                email: "a",
                 password: "a"
             },{
                 idUser:3,
-                email: "E.F@example.com",
                 firstName:"E",
                 lastName: "F",
+                email: "E.F@example.com",
                 password: "EF"
             },{
                 idUser:4,
-                email: "G.H@example.com",
                 firstName:"G",
                 lastName: "H",
+                email: "G.H@example.com",
                 password: "GH"
             }],
 
@@ -142,9 +142,9 @@ class Model extends EventEmitter{
             }],
 
             newUser: {
-                email: "",
                 firstName: "",
                 lastName: "",
+                email: "",
                 password: ""
             },
 
@@ -199,6 +199,20 @@ class Model extends EventEmitter{
         this.emit("change", this.state);
     }
 
+
+
+     addEmployee(firstName, lastName, password){
+        this.restClient.createEmployee(firstName, lastName, password).then(user => {
+            this.state = {
+                ...this.state,
+                employee: this.state.employee.concat([user])
+            };
+        });
+        this.emit("change", this.state);
+    }
+
+
+
     deleteUser(){
         //Get the index of the user
         const idPattern = window.location.toString().match('/[0-9]+')[0];
@@ -231,30 +245,18 @@ class Model extends EventEmitter{
     }
 
 
+
     markHeld(idAppoint){
         this.state = {
             ...this.state,
             ...this.state.appoint.find((app) => app.idAppoint === idAppoint),
-                held: true
+            held: true
 
         };
         this.emit("change", this.state);
 
     }
 
-    addEmployee(firstName, lastName, password){
-        this.state = {
-            ...this.state,
-            employee: this.state.employee.concat([{
-                id: ++this.state.idEmployeeRemember,
-                email: firstName +"." + lastName + "@pets.com",
-                firstName: firstName,
-                lastName: lastName,
-                password: password
-            }])
-        };
-        this.emit("change", this.state);
-    }
 
 
     logout(){
@@ -292,7 +294,15 @@ class Model extends EventEmitter{
         this.restClient.login(this.state.currentUser.email, this.state.currentUser.password).then(response =>{
             if (response.status === 200)
             {
-                window.location.assign("#/cl-start");
+                if(this.state.currentUser.email.includes("pets"))
+                {
+                    window.location.assign("#/empl-start");
+                }
+                else
+                {
+                    window.location.assign("#/cl-start");
+                }
+
             }
             else
             {
@@ -301,10 +311,42 @@ class Model extends EventEmitter{
         })
     }
 
+
+    loadAllAppointsEmpl(){
+        return this.restClient.loadAllAppointEmpl(this.state.currentUser.email, this.state.currentUser.password).then(appoint =>{
+
+            this.state = {
+                ...this.state, appoint: appoint
+            };
+            this.emit("change", this.state);
+        })
+    }
+
+
+    loadAllReviews(){
+        return this.restClient.loadAllReviews(this.state.currentUser.email, this.state.currentUser.password).then(reviews =>{
+
+            this.state = {
+                ...this.state, reviews: reviews
+            };
+            this.emit("change", this.state);
+        })
+    }
+
+    loadAllClients(){
+        return this.restClient.loadAllUsers(this.state.currentUser.email, this.state.currentUser.password).then(appUsers =>{
+
+            this.state = {
+                ...this.state, appUsers: appUsers
+            };
+            this.emit("change", this.state);
+        })
+    }
+
+
 /*
     login(){
 
-        this.setAuthorization();
         if( typeof (this.state.appUsers.find((userr) => userr.email === this.state.currentUser.email && userr.password === this.state.currentUser.password)) !== 'undefined')
         {
             this.state.userFound = "yes";

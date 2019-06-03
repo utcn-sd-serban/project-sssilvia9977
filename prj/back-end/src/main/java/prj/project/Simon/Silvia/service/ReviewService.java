@@ -45,5 +45,18 @@ public class ReviewService {
         repository.save(review);
     }
 
+    @Transactional
+    public Review updateState(Integer id) {
+        ReviewRepository repository = repositoryFactory.createReviewRepository();
+        Review review = repository.findById(id).orElseThrow(ReviewNotFoundException::new);
+       if(review.getState().equals("approved")){
+           review.setText("decline");
+       }
+       else{
+           review.setText("approved");
+       }
+        return repository.save(review);
+    }
+
 
 }

@@ -41,7 +41,7 @@ public class JDBCClientUserRepository implements ClientUserRepository {
 
     @Override
     public Optional<ClientUser> finddByEmail(String email) {
-        List<ClientUser> clientUsers = template.query("SELECT * FROM client_user WHERE _address = ?", new ClientUserMapper(), email);
+        List<ClientUser> clientUsers = template.query("SELECT * FROM client_user WHERE email_address = ?", new ClientUserMapper(), email);
         return clientUsers.isEmpty() ? Optional.empty() : Optional.of(clientUsers.get(0));
     }
 
@@ -72,8 +72,6 @@ public class JDBCClientUserRepository implements ClientUserRepository {
         map.put("last_name", clientUser.getLastName());
         map.put("email_address", clientUser.getEmailAddress());
         map.put("password", clientUser.getPassword());
-
-
 
 
         return insert.executeAndReturnKey(map).intValue();

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import model from "../model/model";
 import ManageApp from "./ManageApp";
-import manageAppPresenter from "../presenter/manageAppPresenter";
+import manageAppPresenter from "../presenter/emplManageAppPresenter";
 
 const mapModelStateToComponentState = (modelState, props) => (
     modelState.appoint[props.match.params.index]
@@ -16,6 +16,7 @@ export default class SmartManageApp extends Component {
         this.listener = modelState => this.setState(mapModelStateToComponentState(modelState, this.props));
 
         model.addListener("change", this.listener);
+        model.loadAllAppointsEmpl();
     }
 
     componentWillUnmount() {

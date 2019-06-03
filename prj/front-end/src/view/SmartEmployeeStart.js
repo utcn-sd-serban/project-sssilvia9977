@@ -15,6 +15,7 @@ export default class SmartEmployeeStart extends Component{
         this.listener = modelState => this.setState(mapModelStateToComponentState(modelState));
         model.addListener("change", this.listener);
 
+
     }
 
     componentWillUnmount() {

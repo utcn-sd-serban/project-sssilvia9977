@@ -29,8 +29,7 @@ export default class SmartEmployeeCreate extends Component{
         return(
             <CreateEmployee
                 onCreate={createEmployeePresenter.onCreate}
-                onCh
-                ange={createEmployeePresenter.onChange}
+                onChange={createEmployeePresenter.onChange}
 
                 onBack = {createEmployeePresenter.onBack}
                 onLogOut = {createEmployeePresenter.onLogOut}
