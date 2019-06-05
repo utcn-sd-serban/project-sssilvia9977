@@ -34,9 +34,9 @@ export default class SmartEmplReviewDetails extends Component {
             <ReviewDetails
                 onBack = {emplReviewDetailsPresenter.onBack}
                 onLogOut = {emplReviewDetailsPresenter.onLogOut}
-               onChangeState = {emplReviewDetailsPresenter.onChangeState}
+                onChangeState = {emplReviewDetailsPresenter.onChangeState}
                 text={this.state.text}
-                idUser={this.state.idUser}
+                clientId={this.state.clientId}
                 state={this.state.state}
 
             />

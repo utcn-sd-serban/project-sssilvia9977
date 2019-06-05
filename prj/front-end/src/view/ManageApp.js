@@ -84,10 +84,10 @@ const ManageApp = ({  appoint, idAppoint,onMarkHeld, onLogOut, onBack}) => (
                                     {
                                         appoint.map((app, index) => (
                                             <tr key={index}>
-                                                <td>{app.idAppoint}</td>
-                                                <td>{app.idUser}</td>
-                                                <td>{app.idType}</td>
-                                                <td>{app.dueDate}</td>
+                                                <td>{app.id}</td>
+                                                <td>{app.clientId}</td>
+                                                <td>{app.typeId}</td>
+                                                <td>{app.dateString}</td>
                                                 <td>{app.held.toString()}</td>
                                                 <td>{app.discount}</td>
                                                 <td>{app.addedDiscount.toString()}</td>

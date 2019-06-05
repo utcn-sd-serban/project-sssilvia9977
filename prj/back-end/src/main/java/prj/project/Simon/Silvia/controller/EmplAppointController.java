@@ -2,8 +2,7 @@ package prj.project.Simon.Silvia.controller;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import prj.project.Simon.Silvia.entity.Appointment;
 import prj.project.Simon.Silvia.service.AppointmentService;
 
@@ -19,6 +18,10 @@ public class EmplAppointController {
         return appointmentService.listAllAppointments();
     }
 
-
+    @PostMapping("/mark")
+    public void markApp(@RequestBody Appointment appointment)
+    {
+        appointmentService.markAsHeld(appointment.getId());
+    }
 
 }

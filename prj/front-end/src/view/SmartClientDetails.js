@@ -11,7 +11,9 @@ const mapModelStateToComponentState = (modelState, props) => (
 export default class SmartClientDetails extends Component {
     constructor(props) {
         super(props);
+        debugger;
         this.state = mapModelStateToComponentState(model.state, props);
+        debugger;
         this.listener = modelState => this.setState(mapModelStateToComponentState(modelState, this.props));
         model.addListener("change", this.listener);
     }
@@ -22,6 +24,8 @@ export default class SmartClientDetails extends Component {
             this.setState(mapModelStateToComponentState(model.state, this.props));
         }
     }
+
+
 
 
     componentWillUnmount() {
@@ -35,7 +39,7 @@ export default class SmartClientDetails extends Component {
                 onDelete = {clientDetailsPresenter.onDelete}
                 onBack = {clientDetailsPresenter.onBack}
                 onLogOut = {clientDetailsPresenter.onLogOut}
-                email={this.state.email}
+                email={this.state.emailAddress}
                 firstName={this.state.firstName}
                 lastName={this.state.lastName}
 

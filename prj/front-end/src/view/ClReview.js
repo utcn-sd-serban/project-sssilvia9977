@@ -97,9 +97,11 @@ const ClReview = ({  onChangeReviewText, onCreate,usersReviews,onViewDetails, on
                                 <table className="table  is-striped " >
                                     <thead>
                                     <tr>
+                                        <th>IdRev</th>
+                                        <th>Client ID</th>
                                         <th>Text</th>
                                         <th>State</th>
-                                        <th>Edit or See </th>
+
                                     </tr>
                                     </thead>
 
@@ -107,15 +109,10 @@ const ClReview = ({  onChangeReviewText, onCreate,usersReviews,onViewDetails, on
                                     {
                                         usersReviews.map((rev, index) => (
                                             <tr key={index}>
+                                                <td>{rev.id}</td>
+                                                <td>{rev.clientId}</td>
                                                 <td>{rev.text}</td>
                                                 <td>{rev.state}</td>
-                                                <td>
-
-                                                    <a className="button is-rounded is-focused"
-                                                       onClick={() => onViewDetails(index)}>See more!
-                                                    </a>
-
-                                                </td>
 
                                             </tr>
                                         ))

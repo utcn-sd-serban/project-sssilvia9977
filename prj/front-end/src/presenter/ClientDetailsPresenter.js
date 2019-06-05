@@ -5,6 +5,7 @@ class ClientDetailsPresenter {
 
 
     onDelete(){
+        debugger;
        model.deleteUser();
         window.location.assign("#/manage-cl-acc");
     }

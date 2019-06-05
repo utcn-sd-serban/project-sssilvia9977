@@ -82,10 +82,12 @@ const ClientStart = ({ usersAppoints, onViewDetails, onAddAppoint, onManageRevie
                                 <table className="table  is-striped " >
                                     <thead>
                                     <tr>
-                                        <th>Type name</th>
-                                        <th>Duration</th>
-                                        <th>Price</th>
+                                        <th>ID App</th>
+                                        <th>ID Type</th>
                                         <th>Due Date</th>
+                                        <th>Held</th>
+                                        <th>Discount</th>
+                                        <th>Added Discount</th>
                                         <th>View Details</th>
                                     </tr>
                                     </thead>
@@ -95,10 +97,12 @@ const ClientStart = ({ usersAppoints, onViewDetails, onAddAppoint, onManageRevie
                                     {
                                         usersAppoints.map((app, index) => (
                                             <tr key={index}>
-                                                <td>{app.typeName}</td>
-                                                <td>{app.duration}</td>
-                                                <td>{app.price}</td>
-                                                <td>{app.dueDate}</td>
+                                                <td>{app.id}</td>
+                                                <td>{app.typeId}</td>
+                                                <td>{app.dateString}</td>
+                                                <td>{app.held.toString()}</td>
+                                                <td>{app.discount}</td>
+                                                <td>{app.addedDiscount.toString()}</td>
                                                 <td>
 
                                                     <a className="button is-rounded is-focused"

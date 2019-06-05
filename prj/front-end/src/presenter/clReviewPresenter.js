@@ -5,10 +5,9 @@ class ClReviewPresenter {
 
 
     onCreate() {
-debugger
-        model.addReview();
         window.location.assign("#/cl-start");
-        debugger
+        model.addReview();
+
 
     }
 

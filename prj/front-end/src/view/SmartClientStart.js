@@ -14,7 +14,7 @@ export default class SmartClientStart extends Component{
         this.state = mapModelStateToComponentState(model.state)
         this.listener = modelState => this.setState(mapModelStateToComponentState(modelState));
         model.addListener("change", this.listener);
-
+        model.loadAllAppForClient();
     }
 
     componentWillUnmount() {

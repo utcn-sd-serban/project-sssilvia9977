@@ -12,11 +12,14 @@ const mapModelStateToComponentState = modelState => ({
 export default class SmartFindClByEmail extends Component {
     constructor() {
         super();
-        const x = model.state;
         this.state = mapModelStateToComponentState(model.state);
         this.listener = modelState => this.setState(mapModelStateToComponentState(modelState));
-        model.addListener("change", this.listener);
+
         debugger;
+        const x = this.state.clientByEmail.emailAddress;
+        debugger;
+        model.addListener("change", this.listener);
+
     }
 
     componentWillUnmount() {
@@ -26,7 +29,6 @@ export default class SmartFindClByEmail extends Component {
     render() {
         return (
             <FindClByEmail
-                onSearchEmailPresenter={findByEmailPresenter.clientByEmail}
                 onViewDetails={employeeManageClientPresenter.onViewDetails}
                 clientByEmail={this.state.clientByEmail}
                 onLogOut={employeeManageClientPresenter.onLogOut}

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviewDetails = ({ idUser,text, state, onBack, onLogOut,onChangeState}) => (
+const ReviewDetails = ({ clientId,text, state, onBack, onLogOut,onChangeState}) => (
 
     <div >
 
@@ -58,7 +58,7 @@ const ReviewDetails = ({ idUser,text, state, onBack, onLogOut,onChangeState}) =>
                             <p className="title is-1">Review</p>
 
                             <p className="title is-2 is-spaced">User id:</p>
-                            <span className="subtitle is-3"> { idUser }</span>
+                            <span className="subtitle is-3"> { clientId }</span>
                             <br />
 
                             <p className="title is-2 is-spaced">Review: </p>

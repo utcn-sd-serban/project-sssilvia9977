@@ -14,7 +14,7 @@ export default class RestClient {
 
 
 
-    loadAllAppointEmpl(username, password) {     //dece pnm nu merge, nu stiu
+    loadAllAppointEmpl(username, password) {
         this.authorization = "Basic " + btoa(username + ":" + password);
         return fetch(BASE_URL + "/appointments-empl", {
             method: "GET",
@@ -26,8 +26,18 @@ export default class RestClient {
 
 
 
-    loadAllReviews(username, password) { //merge
-        debugger
+    loadAllAppointForClient(username, password) {
+        this.authorization = "Basic " + btoa(username + ":" + password);
+        return fetch(BASE_URL + "/appointments-cl/"+username, {
+            method: "GET",
+            headers: {
+                "Authorization": this.authorization
+            }
+        }).then(response => response.json());
+    }
+
+
+    loadAllReviews(username, password) {
         this.authorization = "Basic " + btoa(username + ":" + password);
         return fetch(BASE_URL + "/reviews-empl", {
             method: "GET",
@@ -35,13 +45,24 @@ export default class RestClient {
                 "Authorization": this.authorization
             }
         }).then(response => response.json());
-        debugger
+
+    }
+
+
+    loadAllReviewsForClient(username, password) {
+        this.authorization = "Basic " + btoa(username + ":" + password);
+        return fetch(BASE_URL + "/reviews-cl/"+username, {
+            method: "GET",
+            headers: {
+                "Authorization": this.authorization
+            }
+        }).then(response => response.json());
     }
 
 
 
 
-    loadAllUsers()    //nu merge
+    loadAllUsers()
     {
         return fetch(BASE_URL + "/clients-empls", {
             method: "GET",
@@ -51,7 +72,7 @@ export default class RestClient {
         }).then(response => response.json());
     }
 
-    login(email, password)    //merge
+    login(email, password)
     {
         return fetch(BASE_URL + "/login-client", {
 
@@ -70,13 +91,36 @@ export default class RestClient {
         });
     }
 
-    createAppoint(idType, date, username, id) {   //n am incercat
-        return fetch(BASE_URL + "/create-question", {
+
+    createReview(rev) {
+        debugger;
+        return fetch(BASE_URL + "/create-review", {
             method: "POST",
             body: JSON.stringify({
-                id: id,
-                user: username,
-                idType: idType
+                clientId: rev.idUser,
+                text : rev.text,
+                state: "decline"
+            }),
+            headers: {
+                "Authorization": this.authorization,
+                "Content-Type": "application/json"
+            }
+        }).then(response => {
+            });
+    }
+
+
+    createAppoint(app) {
+        return fetch(BASE_URL + "/create-appointment", {
+            method: "POST",
+            body: JSON.stringify({
+                id: app.idAppoint,
+                clientId: app.idUser,
+                typeId : app.typeId,
+                dateString: app.dueDate,
+                held : false,
+                discount : 0,   //TODO: modifica aici cand pui butonul
+                addedDiscount : false
             }),
             headers: {
                 "Authorization": this.authorization,
@@ -84,6 +128,17 @@ export default class RestClient {
             }
         }).then(response => response.json());
     }
+
+
+    getUserId(email){
+        return fetch(BASE_URL + "/get-id/" + email , {
+            method: "GET",
+            headers: {
+                "Authorization": this.authorization
+            }
+        }).then(response => response.json());
+    }
+
 
     createUser(email, firstName, lastName, password)   //merge
     {
@@ -103,7 +158,7 @@ export default class RestClient {
     }
 
 
-    createEmployee(firstName, lastName, password)  //merge
+    createEmployee(firstName, lastName, password)
     {
         return fetch(BASE_URL + "/create-empl", {
             method: "POST",
@@ -121,7 +176,8 @@ export default class RestClient {
     }
 
 
-   changeState() //cum fac chestia asta
+
+   changeState() //n am incercat
     {
         return fetch(BASE_URL + "/update-review-state/{id}", {
             method: "POST",
@@ -134,8 +190,39 @@ export default class RestClient {
     }
 
 
+    deleteClient(id)
+    {
+        debugger
+        return fetch(BASE_URL + "/delete-cl/" + id, {
+            method: "DELETE",
+            headers: {
+                "Authorization": this.authorization
+            }
+
+        }).then(response => response.json());
+    }
 
 
+
+    markApp(app){
+        debugger;
+        return fetch(BASE_URL + "/mark", {
+            method: "POST",
+            body: JSON.stringify({
+                id: app.id,
+                clientId: app.clientId,
+                typeId: app.typeId,
+                dateString: app.dateString,
+                held: app.held,
+                discount: app.discount,
+                addedDiscount : app.addedDiscount
+            }),
+            headers: {
+                "Authorization": this.authorization,
+                "Content-Type": "application/json"
+            }
+        }).then(response => response);
+    }
 
 
 

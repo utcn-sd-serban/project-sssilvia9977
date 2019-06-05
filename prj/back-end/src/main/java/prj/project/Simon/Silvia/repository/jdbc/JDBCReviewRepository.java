@@ -65,7 +65,7 @@ public class JDBCReviewRepository implements ReviewRepository {
         insert.usingGeneratedKeyColumns("id");
         Map<String, Object> map = new HashMap<>();
         map.put("client_user_id", review.getClientId());
-        map.put("text", review.getText());
+        map.put("textReview", review.getText());
         map.put("state", review.getState());
         return insert.executeAndReturnKey(map).intValue();
 
@@ -73,7 +73,7 @@ public class JDBCReviewRepository implements ReviewRepository {
 
 
     private void update(Review review) {
-        template.update("UPDATE review SET client_user_id = ?, text = ?, state = ? WHERE id = ?",
+        template.update("UPDATE review SET client_user_id = ?, textReview = ?, state = ? WHERE id = ?",
                 review.getClientId(), review.getText(), review.getState(), review.getId());
     }
 

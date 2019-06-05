@@ -20,8 +20,10 @@ class ClientStartPresenter {
     }
 
 
-    onViewDetails(index) {
-        window.location.assign("#/review-cl-details/" + index)
+    onViewDetails(index) {  //here we need the app id la care ii zice app.id
+        debugger
+        window.location.assign("#/app-cl-details/" + index)
+        debugger
     }
 
     onLogOut(){

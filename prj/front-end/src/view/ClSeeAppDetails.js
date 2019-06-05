@@ -1,12 +1,12 @@
 import React from "react";
-import model from "../model/model"
-const FindClByEmail = ({ clientByEmail , onViewDetails, onBack, onLogOut}) => (
 
+const ClSeeAppDetails = ({ typeName, typePrice, typeDuration, appDueDate, appWasHeld, appDiscountPrice, appUsedDiscount, onBack, onLogOut}) => (
 
     <div >
 
 
         <section className="hero is-fullheight is-primary is-bold">
+
 
             <section className="hero is-link is-medium">
 
@@ -44,58 +44,67 @@ const FindClByEmail = ({ clientByEmail , onViewDetails, onBack, onLogOut}) => (
 
             </section>
 
-
-
-
             <div className="hero-body">
-
 
                 <div className="container is-centered">
 
 
 
 
-
                     <div className="tile is-ancestor">
                         <div className="tile is-4 is-vertical is-parent">
-                            <div className="tile is-child ">
-                                <p className="title">Searched by Email</p>
 
-                            </div>
 
+                            <p className="title is-1">This is the appointment:</p>
+
+
+
+                            <p className="title is-2 is-spaced">Due Date:</p>
+                            <span className="subtitle is-3"> { appDueDate }</span>
+                            <br />
+                            <br />
+
+
+                            <p className="title is-2 is-spaced">Type Name:</p>
+                            <span className="subtitle is-3"> { typeName }</span>
+                            <br />
+
+                            <p className="title is-2 is-spaced">Price:</p>
+                            <span className="subtitle is-3"> { typePrice }</span>
+                            <br />
+                            <br />
+
+
+                            <p className="title is-2 is-spaced">Duration:</p>
+                            <span className="subtitle is-3"> { typeDuration }</span>
+                            <br />
+                            <br />
+
+
+                            <p className="title is-2 is-spaced">Was held?</p>
+                            <span className="subtitle is-3"> { appWasHeld }</span>
+                            <br />
+                            <br />
+
+
+                            <p className="title is-2 is-spaced">Discount:</p>
+                            <span className="subtitle is-3"> { appDiscountPrice }</span>
+                            <br />
+                            <br />
+
+
+
+                            <p className="title is-2 is-spaced">Did you use the discount?</p>
+                            <span className="subtitle is-3"> { appUsedDiscount }</span>
+                            <br />
+                            <br />
 
                         </div>
-                        <div className="tile is-parent">
-                            <div className="tile is-child ">
-
-                                <table className="table  is-striped " >
-                                    <thead>
-                                    <tr>
-                                        <th>Email</th>
-                                        <tr>{clientByEmail.emailAddress}</tr>
-
-                                        <th>First Name</th>
-                                        <tr>{clientByEmail.firstName}</tr>
-
-                                        <th>Last Name</th>
-                                        <tr>{clientByEmail.lastName}</tr>
-
-                                    </tr>
-                                    </thead>
-
-                                    <tbody>
 
 
-
-
-                                    </tbody>
-                                </table>
-
-
-
-                            </div>
-                        </div>
                     </div>
+
+
 
                 </div>
             </div>
@@ -105,17 +114,12 @@ const FindClByEmail = ({ clientByEmail , onViewDetails, onBack, onLogOut}) => (
         </section>
 
 
-
-
     </div>
+
+
 
 );
 
-export default FindClByEmail;
 
-/*
+export default ClSeeAppDetails;
 
-
-
-
- */

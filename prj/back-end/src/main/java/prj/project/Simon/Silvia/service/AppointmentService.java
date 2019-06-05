@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 public class AppointmentService {
     private final RepositoryFactory repositoryFactory;
 
-    //find all, find all for user, find id, findBy typeId, find by date, save, remove
 
 
     @Transactional
@@ -32,6 +31,13 @@ public class AppointmentService {
 
     public List<Appointment> listAllAppointmentsForUser(Integer clientId) {
         return repositoryFactory.createAppointmentRepository().findAllForClient(clientId);
+    }
+
+    public List<Appointment> listAllAppointmentsForUserByEmail(String email ) {
+
+        ClientUser clientUser = repositoryFactory.createClientUserRepository().finddByEmail(email).get();
+
+        return repositoryFactory.createAppointmentRepository().findAll().stream().filter(x -> x.getClientId().equals(clientUser.getId())).collect(Collectors.toList());
     }
 
     public List<Appointment> listAllAppointmentsForType(Integer typeId) {

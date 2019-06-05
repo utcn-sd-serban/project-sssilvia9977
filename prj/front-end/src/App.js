@@ -15,6 +15,7 @@ import SmartEmplReviewDetails from "./view/SmartEmplReviewDetails";
 import SmartGenerateRaportAppDate from "./view/SmartGenerateRaportAppDate";
 import SmartClAddApp from "./view/SmartClAddApp";
 import SmartClReview from "./view/SmartClReview";
+import SmartClSeeAppDetails from "./view/SmartClSeeAppDetails";
 
 
 
@@ -37,6 +38,7 @@ const App = () => (
             <Route exact = {true} component={SmartGenerateRaportAppDate} path = "/find-app-date" />
             <Route exact = {true} component={SmartClAddApp} path = "/create-app-cl" />
             <Route exact = {true} component={SmartClReview} path = "/manage-rev-cl" />
+           <Route exact = {true} component={SmartClSeeAppDetails} path = "/app-cl-details/:index" />
 
         </Switch>
 

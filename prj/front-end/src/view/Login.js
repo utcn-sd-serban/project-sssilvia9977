@@ -33,7 +33,7 @@ const Login = ({ onCreateUser, onLogin, onChange, approvedReviews }) => (
                                         <div className="level-left" >
                                             <div  className = "level-item">
                                                 <input
-                                                    className="input is-rounded is-focused" type="text" placeholder="Enter password"
+                                                    className="input is-rounded is-focused" type="password" placeholder="Enter password"
                                                     onChange={e => onChange("password", e.target.value)}/>
                                             </div>
                                         </div>

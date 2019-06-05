@@ -173,7 +173,16 @@ class Model extends EventEmitter{
             clientByEmail: [],
             searchedText: "",
             setAppType: "",
-            setAppDate: ""
+            setAppDate: "",
+
+            UserToDelete: "",
+            userToDisplay: {
+                idUser:0,
+                firstName:"",
+                lastName: "",
+                email: "",
+                password: ""
+            }
 
 
 
@@ -214,15 +223,10 @@ class Model extends EventEmitter{
 
 
     deleteUser(){
-        //Get the index of the user
-        const idPattern = window.location.toString().match('/[0-9]+')[0];
-
-        //get the integer value of the id
-        const idToDelete = parseInt(idPattern.substring(1, idPattern.length));
-
-        delete this.state.appUsers[idToDelete];
-
+        let idOfUserToDelete = this.state.appUsers[this.state.UserToDelete].idUser;
+        this.restClient.deleteClient(idOfUserToDelete);
         this.emit("change", this.state);
+
 
     }
 
@@ -247,12 +251,16 @@ class Model extends EventEmitter{
 
 
     markHeld(idAppoint){
-        this.state = {
-            ...this.state,
-            ...this.state.appoint.find((app) => app.idAppoint === idAppoint),
-            held: true
+        const currentAppointment = this.state.appoint[idAppoint];
+        this.restClient.markApp(currentAppointment).then(() => {
+                this.loadAllAppointsEmpl();
+        }
 
-        };
+        );
+
+
+
+
         this.emit("change", this.state);
 
     }
@@ -297,10 +305,23 @@ class Model extends EventEmitter{
                 if(this.state.currentUser.email.includes("pets"))
                 {
                     window.location.assign("#/empl-start");
+                    this.restClient.loadAllUsers(this.state.currentUser.email, this.state.currentUser.password).then(allUs => {
+                        this.loadAllAppointsEmpl();
+                        this.state = {
+                            ...this.state, appUsers: allUs
+                        }
+                    })
+
                 }
                 else
                 {
                     window.location.assign("#/cl-start");
+                    this.restClient.getUserId(this.state.currentUser.email).then(id => {
+                        this.state = {
+                            ...this.state,
+                            currentUser:{ ...this.state.currentUser, idUser:id }
+                        }
+                    })
                 }
 
             }
@@ -323,6 +344,18 @@ class Model extends EventEmitter{
     }
 
 
+    loadAllAppForClient(){
+        return this.restClient.loadAllAppointForClient(this.state.currentUser.email, this.state.currentUser.password).then(usersAppoints =>{
+
+            this.state = {
+                ...this.state, usersAppoints: usersAppoints
+            };
+            this.emit("change", this.state);
+        })
+    }
+
+
+
     loadAllReviews(){
         return this.restClient.loadAllReviews(this.state.currentUser.email, this.state.currentUser.password).then(reviews =>{
 
@@ -332,6 +365,19 @@ class Model extends EventEmitter{
             this.emit("change", this.state);
         })
     }
+
+
+    loadAllReviewsForClient(){
+        return this.restClient.loadAllReviewsForClient(this.state.currentUser.email, this.state.currentUser.password).then(usersReviews =>{
+
+            this.state = {
+                ...this.state, usersReviews: usersReviews
+            };
+            this.emit("change", this.state);
+        })
+    }
+
+
 
     loadAllClients(){
         return this.restClient.loadAllUsers(this.state.currentUser.email, this.state.currentUser.password).then(appUsers =>{
@@ -344,67 +390,6 @@ class Model extends EventEmitter{
     }
 
 
-/*
-    login(){
-
-        if( typeof (this.state.appUsers.find((userr) => userr.email === this.state.currentUser.email && userr.password === this.state.currentUser.password)) !== 'undefined')
-        {
-            this.state.userFound = "yes";
-            this.state.typeOfUserFound = "cl";
-
-
-
-            this.state = {
-                ...this.state,
-                usersAppoints : this.state.appoint.filter( x => x.idUser ===
-                    this.state.appUsers.find((userr) => userr.email === this.state.currentUser.email && userr.password === this.state.currentUser.password).idUser )
-            };
-            this.emit("change", this.state);
-
-            this.state = {
-                ...this.state,
-                usersReviews : this.state.reviews.filter( x => x.idUser ===
-                    this.state.appUsers.find((userr) => userr.email === this.state.currentUser.email && userr.password === this.state.currentUser.password).idUser )
-            };
-            this.emit("change", this.state);
-
-            this.state = {
-                ...this.state,
-                currentUser: {
-                    ...this.state.currentUser,
-                    firstName: this.state.appUsers.find(
-                        (userr) => userr.email === this.state.currentUser.email && userr.password === this.state.currentUser.password)
-                        .firstName,
-                    idUser: this.state.appUsers.find(
-                        (userr) => userr.email === this.state.currentUser.email && userr.password === this.state.currentUser.password)
-                        .idUser,
-                }
-            };
-            this.emit("change", this.state);
-
-        } else if ( typeof (this.state.employee.find((userr) => userr.email === this.state.currentUser.email && userr.password === this.state.currentUser.password)) !== 'undefined'){
-            this.state.userFound = "yes";
-            this.state.typeOfUserFound = "empl";
-
-            this.state = {
-                ...this.state,
-                currentUser: {
-                    ...this.state.currentUser,
-                    firstName: this.state.employee.find(
-                        (userr) => userr.email === this.state.currentUser.email && userr.password === this.state.currentUser.password)
-                        .firstName,
-                    idUser: this.state.employee.find(
-                        (userr) => userr.email === this.state.currentUser.email && userr.password === this.state.currentUser.password)
-                        .idUser
-                }
-            };
-            this.emit("change", this.state);
-        }
-        else {
-            this.state.userFound= "no";
-        }
-    }
-*/
 
     changeCurrentUserProperty(property, value) {
         this.state = {
@@ -445,21 +430,16 @@ class Model extends EventEmitter{
     addAppoint() {
         let newUserAppointment = {};
         newUserAppointment["idAppoint"] = ++this.state.idAppointRemember;
-        newUserAppointment["idUser"] = this.state.currentUser.idUser;
-        newUserAppointment["user"] = this.state.currentUser.firstName;
-        newUserAppointment["typeName"] = this.state.appType.find((x) => x.idAppType == this.state.setAppType).typeName;
-        newUserAppointment["duration"] = this.state.appType.find((x) => x.idAppType == this.state.setAppType).duration;
-        newUserAppointment["price"] =  this.state.appType.find((x) => x.idAppType == this.state.setAppType).price;
-        newUserAppointment["dueDate"] =  this.state.setAppDate;
-        this.state = {
-            ...this.state,
-            appoint: this.state.appoint.concat([{
-                newUserAppointment
-            }]),
+        newUserAppointment["idUser"]    =   this.state.currentUser.idUser;
+        newUserAppointment["user"]      =   this.state.currentUser.firstName;
+        newUserAppointment["typeId"]    =   this.state.setAppType;
+        newUserAppointment["duration"]  =   this.state.appType.find((x) => x.idAppType == this.state.setAppType).duration;
+        newUserAppointment["price"]     =   this.state.appType.find((x) => x.idAppType == this.state.setAppType).price;
+        newUserAppointment["dueDate"]   =   this.state.setAppDate;
 
-            usersAppoints: this.state.usersAppoints.concat(newUserAppointment)
+        this.restClient.createAppoint(newUserAppointment);
 
-        };
+
         this.emit("change", this.state);
     }
 
@@ -468,19 +448,12 @@ class Model extends EventEmitter{
 
     addReview() {
         let newUserReview = {};
-        newUserReview["idReview"] = ++this.state.idReviewRemember;
-        newUserReview["idUser"] = this.state.currentUser.idUser;
-        newUserReview["text"] =  this.state.setReviewText;
-        newUserReview["state"] = "decline";
-        this.state = {
-            ...this.state,
-            reviews: this.state.reviews.concat([{
-                newUserReview
-            }]),
+        newUserReview["idReview"]  = ++this.state.idReviewRemember;
+        newUserReview["idUser"]    = this.state.currentUser.idUser;
+        newUserReview["text"]      = this.state.setReviewText;
+        newUserReview["state"]     = "decline";
 
-            usersReviews: this.state.usersReviews.concat(newUserReview)
-
-        };
+        this.restClient.createReview(newUserReview);
         this.emit("change", this.state);
     }
 
@@ -568,10 +541,10 @@ class Model extends EventEmitter{
 
 
     findByClientEmail(){
-
+        debugger
         this.state = {
             ...this.state,
-            clientByEmail : this.state.appUsers.filter( x => x.email === (this.state.searchedText.searchedText)  )
+            clientByEmail : this.state.appUsers.find( x => x.emailAddress === (this.state.searchedText.searchedText)  )
         };
         this.emit("change", this.state);
 

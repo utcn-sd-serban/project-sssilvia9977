@@ -73,8 +73,6 @@ const ClientDetails = ({ email, firstName, lastName, onDelete, onBack, onLogOut}
                             <br />
 
 
-
-
                                </div>
 
 

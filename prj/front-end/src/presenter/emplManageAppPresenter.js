@@ -17,8 +17,9 @@ class EmplManageAppPresenter {
 
 
 
-    onMarkHeld(){
-        model.markHeld(model.state.idAppoint);
+    onMarkHeld(index){
+        debugger;
+        model.markHeld(index);
     }
 
 }

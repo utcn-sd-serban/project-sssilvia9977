@@ -80,6 +80,7 @@ public class UnSingurSeed implements CommandLineRunner {
             reviewRepository.save(new Review(1, "bla bla"));
             reviewRepository.save(new Review(2, "This was awesome!" , "approved"));
             reviewRepository.save(new Review(1, "Very very nice haha no"));
+            reviewRepository.save(new Review(2, "Meh"));
 
         }
 

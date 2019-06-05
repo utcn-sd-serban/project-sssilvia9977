@@ -57,7 +57,7 @@ const ClAddAppoint = ({  appType,onChangeAppType, onChangeAppDate, onCreate, onB
                         <div className="tile is-4 is-vertical is-parent">
                             <div className="tile is-child ">
                                 <p className="title">Add an appointment</p>
-                                <p className="subtitle">Enter the idd dof the app type and the date</p>
+                                <p className="subtitle">Enter the idd of the app type and the date</p>
 
 
                             </div>

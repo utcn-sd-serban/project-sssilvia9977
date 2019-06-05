@@ -16,6 +16,7 @@ export default class SmartClReview extends Component{
         this.state = mapModelStateToComponentState(model.state)
         this.listener = modelState => this.setState(mapModelStateToComponentState(modelState));
         model.addListener("change", this.listener);
+        model.loadAllReviewsForClient();
 
     }
 

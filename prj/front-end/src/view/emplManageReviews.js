@@ -81,8 +81,8 @@ const EmplManageReviews = ({  reviews, onLogOut, onBack, onViewDetails}) => (
                                     {
                                         reviews.map((re, index) => (
                                             <tr key={index}>
-                                                <td>{re.idReview}</td>
-                                                <td>{re.idUser}</td>
+                                                <td>{re.id}</td>
+                                                <td>{re.clientId}</td>
                                                 <td>{re.text}</td>
                                                 <td>{re.state}</td>
                                                 <td>

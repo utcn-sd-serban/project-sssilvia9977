@@ -49,6 +49,6 @@ CREATE TABLE IF NOT EXISTS appointment (
 CREATE TABLE IF NOT EXISTS review (
                                          id SERIAL PRIMARY KEY,
                                          client_user_id INT NOT NULL REFERENCES  client_user (id),
-                                         text VARCHAR(64),
+                                         textReview VARCHAR(64),
                                          state VARCHAR(64)
 );

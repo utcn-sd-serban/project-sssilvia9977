@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import prj.project.Simon.Silvia.entity.Appointment;
+import prj.project.Simon.Silvia.entity.ClientUser;
 import prj.project.Simon.Silvia.repository.AppointmetRepository;
 import prj.project.Simon.Silvia.repository.jdbc.mapper.AppointmentMapper;
 
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class JDBCAppointmentRepository implements AppointmetRepository {
     public final JdbcTemplate template;
+   // public final JDBCClientUserRepository clientUserRepository;
 
 
     @Override
@@ -40,6 +42,7 @@ public class JDBCAppointmentRepository implements AppointmetRepository {
                         a.getClientId().equals(userId)).collect(Collectors.toList());
 
     }
+
 
     @Override
     public List<Appointment> findAllOfType(Integer typeId) {
